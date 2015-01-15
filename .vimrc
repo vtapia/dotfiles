@@ -1,6 +1,7 @@
 set nocompatible
 set paste
 
+set t_Co=256
 colorscheme railscasts
 
 let mapleader=","
