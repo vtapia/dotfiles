@@ -1,0 +1,19 @@
+[user]
+	name = Victor Tapia
+	email = vtapia@spezialk.net
+
+[github]
+	user = vtapia
+
+[core]
+	editor = vim
+
+[color]
+	diff = auto
+
+[push]
+	default = simple
+
+[diff]
+	mnemonicprefix = true
+	algorithm = patience
