@@ -20,6 +20,7 @@ vnoremap > >gv
 " set colorcolumn=80
 " highlight ColorColumn ctermbg=233
 
+set hlsearch
 set history=700
 set undolevels=700
 
@@ -43,13 +44,14 @@ au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
 
-" Gundo
-map <leader>g :GundoToggle<CR>
-
 syntax on
 filetype plugin indent on
 
 for fpath in split(globpath('~/.vim/settings', '*.vim'), '\n')
 	exe 'source' fpath
 endfor
+
+" Enable folding, but open unfolded
+setlocal foldmethod=syntax
+set foldlevelstart=99
 
