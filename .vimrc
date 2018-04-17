@@ -23,6 +23,9 @@ vnoremap > >gv
 set hlsearch
 set history=700
 set undolevels=700
+set undofile
+set undodir=~/tmp/vimundo
+set backupdir=~/tmp/vimbkp
 
 runtime autoload/pathogen.vim
 
@@ -44,6 +47,13 @@ au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
 
+" Gundo
+map <leader>g :GundoToggle<CR>
+
+" ctags: fwd/bwd in tags stack
+" map <M-Left> <C-T>
+" map <M-Right> <C-]>
+
 syntax on
 filetype plugin indent on
 
@@ -55,3 +65,8 @@ endfor
 setlocal foldmethod=syntax
 set foldlevelstart=99
 
+" NERDTree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+map <Leader>t :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
